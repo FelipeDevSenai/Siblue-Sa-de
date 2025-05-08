@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siblue - Hidratação Inteligente</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333;
+            background-color: #fff;
+            overflow-x: hidden;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd' opacity='0.05'%3E%3Cg fill='%232563eb' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .img-hover-effect {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .img-hover-effect:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            bottom: -10px;
+            left: 25%;
+            background-color: #2563eb;
+        }
+        
+        .blue-section {
+            background-color: #eff6ff;
+        }
+        
+        .water-counter {
+            transition: all 0.5s ease;
+        }
+        
+        .water-counter:hover {
+            transform: scale(1.05);
+        }
+        
+        .hydration-calculator {
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-stack {
+                flex-direction: column;
+            }
+            
+            .mobile-full-width {
+                width: 100% !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+            
+            .mobile-text-center {
+                text-align: center !important;
+            }
+            
+            .mobile-mt-8 {
+                margin-top: 2rem !important;
+            }
+        }
+    </style>
+</head>
+<body class="relative">
+    <!-- Header/Cabeçlho -->
+    <header class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="img/sibluuu.png" alt="Siblue Logo" class="h-16">
+            </div>
+            
+            <nav class="hidden md:block">
+                <ul class="flex space-x-8">
+                    <li><a href="#home" class="text-gray-800 hover:text-blue-600 font-medium transition">Home</a></li>
+                    <li><a href="#about" class="text-gray-800 hover:text-blue-600 font-medium transition">Sobre</a></li>
+                    <li><a href="#calculator" class="text-gray-800 hover:text-blue-600 font-medium transition">Calculadora</a></li>
+                    <li><a href="#technology" class="text-gray-800 hover:text-blue-600 font-medium transition">Tecnologia</a></li>
+                </ul>
+            </nav>
+            
+            <div class="md:hidden">
+                <button class="text-gray-800 focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- sEção Principal -->
+    <section id="home" class="relative pt-24 md:pt-0">
+        <div class="relative h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-white">
+            <div class="container mx-auto px-4 text-center">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 max-w-3xl mx-auto leading-tight mb-6">
+                    Hidratação inteligente para seu bem-estar
+                </h1>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+                    Tecnologia que transforma sua relação com a água
+                </p>
+                <div class="flex justify-center space-x-4">
+                    <a href="#about" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-full transition duration-300">
+                        Conheça mais
+                    </a>
+                    <a href="#calculator" class="inline-block border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-medium py-3 px-8 rounded-full transition duration-300">
+                        Calcule sua hidratação
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seções -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl font-bold text-center text-gray-800 mb-12">Soluções inteligentes</h2>
+            
+            <div class="flex flex-col md:flex-row items-center mobile-stack">
+                <div class="w-full md:w-1/2 mb-10 md:mb-0 md:pr-10 mobile-full-width">
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="bg-blue-50 p-6 rounded-xl water-counter">
+                            <div class="text-blue-600 text-3xl mb-3">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-800 mb-2">Lembretes inteligentes</h3>
+                            <p class="text-gray-600 text-sm">Notificações personalizadas para sua hidratação</p>
+                        </div>
+                        <div class="bg-blue-50 p-6 rounded-xl water-counter">
+                            <div class="text-blue-600 text-3xl mb-3">
+                                <i class="fas fa-temperature-low"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-800 mb-2">Temperatura ideal</h3>
+                            <p class="text-gray-600 text-sm">Mantém sua água na temperatura perfeita</p>
+                        </div>
+                        <div class="bg-blue-50 p-6 rounded-xl water-counter">
+                            <div class="text-blue-600 text-3xl mb-3">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-800 mb-2">Monitoramento</h3>
+                            <p class="text-gray-600 text-sm">Acompanhe seu consumo diário</p>
+                        </div>
+                        <div class="bg-blue-50 p-6 rounded-xl water-counter">
+                            <div class="text-blue-600 text-3xl mb-3">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h3 class="font-bold text-gray-800 mb-2">App integrado</h3>
+                            <p class="text-gray-600 text-sm">Controle tudo pelo seu smartphone</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="w-full md:w-1/2 mobile-full-width mobile-mt-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Por que escolher a Siblue?</h3>
+                    <p class="text-gray-600 mb-6">
+                        Nossas garrafas inteligentes foram projetadas para transformar sua hidratação em uma experiência personalizada e eficiente.
+                    </p>
+                    <div class="bg-blue-50 p-6 rounded-xl border-l-4 border-blue-500">
+                        <p class="text-blue-800">
+                            <i class="fas fa-check-circle text-blue-600 mr-2"></i> Tecnologia que se adapta ao seu estilo de vida
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculador de Peso/Água -->
+    <section id="calculator" class="py-20 blue-section">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl font-bold text-center text-gray-800 mb-12">Sua hidratação ideal</h2>
+            
+            <div class="max-w-md mx-auto bg-white p-8 rounded-xl hydration-calculator">
+                <div class="mb-6">
+                    <label class="block text-gray-700 mb-2" for="weight">Seu peso (kg)</label>
+                    <input type="number" id="weight" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Ex: 70">
+                </div>
+                <div class="mb-6">
+                    <label class="block text-gray-700 mb-2" for="activity">Nível de atividade</label>
+                    <select id="activity" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="1.2">Sedentário</option>
+                        <option value="1.375">Levemente ativo</option>
+                        <option value="1.55">Moderadamente ativo</option>
+                        <option value="1.725">Muito ativo</option>
+                        <option value="1.9">Extremamente ativo</option>
+                    </select>
+                </div>
+                <button id="calculate-btn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-md transition duration-300">
+                    Calcular minha hidratação
+                </button>
+                <div id="result" class="mt-6 hidden">
+                    <div class="bg-blue-50 p-4 rounded-md">
+                        <p class="text-blue-800 font-medium">Sua necessidade diária:</p>
+                        <p id="water-amount" class="text-2xl font-bold text-blue-600 mt-2"></p>
+                        <p class="text-sm text-gray-600 mt-2">* Baseado em 35ml por kg de peso corporal ajustado por atividade</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Tecnologia (Garrafa) -->
+    <section id="technology" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl font-bold text-center text-gray-800 mb-12">Tecnologia exclusiva</h2>
+            
+            <div class="flex flex-col md:flex-row items-center mobile-stack">
+                <div class="w-full md:w-1/2 mb-10 md:mb-0 mobile-full-width">
+                    <img src="img/gpm.png">
+                </div>
+                
+                <div class="w-full md:w-1/2 md:pl-10 mobile-full-width mobile-mt-8">
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Como funciona</h3>
+                        <p class="text-gray-600 mb-6">
+                            Nossa tecnologia patenteada monitora seu consumo em tempo real e se adapta às suas necessidades.
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-water text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Sensores precisos</h4>
+                                <p class="text-gray-600 text-sm">Medição exata do consumo em mililitros</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-bluetooth-b text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Conexão sem fio</h4>
+                                <p class="text-gray-600 text-sm">Sincronização contínua com seu smartphone</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-battery-three-quarters text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Bateria de longa duração</h4>
+                                <p class="text-gray-600 text-sm">Até 30 dias de uso com uma única carga</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-16 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">Pronto para transformar sua hidratação?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Junte-se a milhares de pessoas que já melhoraram sua saúde com a Siblue</p>
+            <a href="https://api.whatsapp.com/send/?phone=5511982714456&text=Ol%C3%A1%2C+tenho+uma+d%C3%BAvida.+Por+favor%2C+me+ajude%21&type=phone_number&app_absent=0" class="inline-block bg-white text-blue-600 hover:bg-gray-100 font-medium py-3 px-8 rounded-full transition duration-300">
+                Quero minha Siblue
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer / Rodapé-->
+    <footer class="bg-gray-800 py-12 text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-8 md:mb-0">
+                    <img src="img/sibluuu.png" alt="Siblue Logo" class="h-16 mb-4">
+                    <p class="text-gray-300 max-w-xs">Inovação em hidratação inteligente</p>
+                </div>
+                
+                <div class="mb-8 md:mb-0">
+                    <h3 class="text-lg font-bold text-white mb-4">Links</h3>
+                    <ul class="flex space-x-6">
+                        <li><a href="#home" class="text-gray-300 hover:text-blue-400 transition">Home</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-blue-400 transition">Sobre</a></li>
+                        <li><a href="#calculator" class="text-gray-300 hover:text-blue-400 transition">Calculadora</a></li>
+                        <li><a href="#technology" class="text-gray-300 hover:text-blue-400 transition">Tecnologia</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-4">Contato</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-300">
+                            <i class="fas fa-envelope mr-2 text-blue-400"></i>
+                        palomamiranda2005@gmail.com.br
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Siblue. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle 
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.querySelector('.md\\:hidden button');
+            const mobileMenu = document.createElement('div');
+            mobileMenu.className = 'hidden fixed inset-0 bg-white z-50 p-4';
+            mobileMenu.innerHTML = `
+                <div class="flex justify-between items-center mb-8">
+                    <img src="img/sibluuu.png" alt="Siblue Logo" class="h-16">
+                    <button class="text-gray-800 focus:outline-none close-mobile-menu">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                <ul class="space-y-6">
+                    <li><a href="#home" class="block text-xl text-gray-800 hover:text-blue-600">Home</a></li>
+                    <li><a href="#about" class="block text-xl text-gray-800 hover:text-blue-600">Sobre</a></li>
+                    <li><a href="#calculator" class="block text-xl text-gray-800 hover:text-blue-600">Calculadora</a></li>
+                    <li><a href="#technology" class="block text-xl text-gray-800 hover:text-blue-600">Tecnologia</a></li>
+                </ul>
+            `;
+            document.body.appendChild(mobileMenu);
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            mobileMenu.querySelector('.close-mobile-menu').addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+                document.body.style.overflow = '';
+            });
+            
+            // Calculadora de Hidratação Funcional
+            const calculateBtn = document.getElementById('calculate-btn');
+            const resultDiv = document.getElementById('result');
+            const waterAmount = document.getElementById('water-amount');
+            
+            calculateBtn.addEventListener('click', function() {
+                const weight = parseFloat(document.getElementById('weight').value);
+                const activityLevel = parseFloat(document.getElementById('activity').value);
+                
+                if (weight && weight > 0) {
+                    const baseWater = weight * 35; // 35ml por kg
+                    const adjustedWater = baseWater * activityLevel;
+                    const liters = adjustedWater / 1000;
+                    
+                    waterAmount.textContent = liters.toFixed(2) + ' litros/dia';
+                    resultDiv.classList.remove('hidden');
+                    
+                    // rESULTADo
+                    setTimeout(() => {
+                        resultDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }, 300);
+                } else {
+                    alert('Por favor, insira um peso válido.');
+                }
+            });
+            
+            // Links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Fecha menu /  Mobile
+                        if (!mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                            document.body.style.overflow = '';
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
